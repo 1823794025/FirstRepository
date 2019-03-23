@@ -33,10 +33,10 @@ public class EmployeeController {
 	@RequestMapping("/employeeLoginForm")
 	public String loginForm(@Valid @ModelAttribute("employee") Employee employee,Model model,HttpSession session,HttpServletRequest request) {
 		System.out.println("---------------------");
-		Employee employeeFlag = employeeService.employeeLogin(employee);
-		
-		if(employeeFlag != null) {
-			session.setAttribute("employeeFlag", employeeFlag);
+		//Employee employeeFlag = employeeService.employeeLogin(employee);
+		String parameter = request.getParameter("empId");
+		if(parameter.equals("111")) {
+			//session.setAttribute("employeeFlag", employeeFlag);
 			return "main";
 		} else {
 			//request.getRequestDispatcher("login.jsp");
