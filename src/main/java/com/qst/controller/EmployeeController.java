@@ -1,6 +1,8 @@
 package com.qst.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -21,15 +23,26 @@ public class EmployeeController {
 	@Qualifier("employeeServiceImpl")
 	EmployeeService employeeService;
 	
+	@RequestMapping("/login")
+	public String loginto(Model model) {
+		System.out.println("123456");
+		return "login";
+	}
+	
+	
 	@RequestMapping("/employeeLoginForm")
-	public String loginForm(@Valid @ModelAttribute("employee") Employee employee,Model model,HttpSession session) {
+	public String loginForm(@Valid @ModelAttribute("employee") Employee employee,Model model,HttpSession session,HttpServletRequest request) {
+		System.out.println("---------------------");
 		Employee employeeFlag = employeeService.employeeLogin(employee);
+		
 		if(employeeFlag != null) {
 			session.setAttribute("employeeFlag", employeeFlag);
 			return "main";
 		} else {
+			//request.getRequestDispatcher("login.jsp");
 			model.addAttribute("errorlogin","账号或密码错误");
 			return "login";
+			
 		}
 	}
 }

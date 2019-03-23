@@ -1,58 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-pageContext.setAttribute("APP_PATH", request.getContextPath());
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
-<html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
-
-
-<!-- web路径：
-不以/开始的相对路径，找资源，以当前资源的路径为基准，经常容易出问题。
-以/开始的相对路径，找资源，以服务器的路径为标准(http://localhost:3306)；需要加上项目名
-  http://localhost:3306/ssm-crud
- -->
-<script type="text/javascript"
- src="${APP_PATH }/static/js/jquery-1.12.4.min.js">
-</script>
-<link
- href="${APP_PATH }/static/bootstrap-3.3.7-dist/css/bootstrap.min.css"
- rel="stylesheet">
-<script
- src="${APP_PATH }/static/bootstrap-3.3.7-dist/js/bootstrap.min.js">
-</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
 
 </head>
 <body>
- <%-- <jsp:forward page="login/login" /> --%>
- <div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span12">
-			<form class="form-horizontal">
-				<div class="control-group">
-					 <label class="control-label" for="inputEmail">邮箱</label>
-					<div class="controls">
-						<input id="inputEmail" type="text" />
-					</div>
-				</div>
-				<div class="control-group">
-					 <label class="control-label" for="inputPassword">密码</label>
-					<div class="controls">
-						<input id="inputPassword" type="password" />
-					</div>
-				</div>
-				<div class="control-group">
-					<div class="controls">
-						 <label class="checkbox"><input type="checkbox" /> Remember me</label> <button type="submit" class="btn">登陆</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
+	<div class="place">
+	    <span>位置：</span>
+	    <ul class="placeul">
+		    <li><a href="#">用户信息管理</a></li>
+		    <li><a href="#">用户验证</a></li>
+	    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    <div class="formtitle"><span>用户验证</span></div>
+    <form action="">
+	    <ul class="forminfo">
+		    <li><label>银行卡号</label><input name="" type="text" class="dfinput" /><i>添加验证</i></li>
+		    <li><label>身份证号</label><input name="" type="text" class="dfinput" /><i>添加验证</i></li>
+		    <li><label>登录密码</label><input name="" type="password" class="dfinput" /><i>添加验证</i></li>
+		    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="验证"/></li>
+	    </ul>
+    </form>
+    
+    </div>
 </body>
 </html>
