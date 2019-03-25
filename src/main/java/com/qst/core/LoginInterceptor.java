@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.qst.po.Employee;
 import com.qst.po.UserInfo;;
 
 
@@ -21,10 +22,10 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		//获取session的user
-		UserInfo user = (UserInfo) request.getSession().getAttribute("user");
+		Employee employee = (Employee) request.getSession().getAttribute("employeeFlag");
 		String requestType = request.getHeader("X-Requested-With");
 		//如果user为空，说明没有登陆，则重定向到首页，返回false
-		if(user==null){
+		if(employee==null){
 			//如果是ajax输入标志位
 			if (requestType != null && requestType.equals("XMLHttpRequest")) {
 				//用response的流进行输出。

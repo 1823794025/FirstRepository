@@ -13,6 +13,6 @@
 </head>
 <body onload="haha()">
 	<%-- <jsp:forward page="employee/login"></jsp:forward> --%>
-	 <a href="employee/login">qwer</a>
+	 <!-- <a href="employee/login">跳转失败，手动跳转</a> -->
 </body>
 </html>

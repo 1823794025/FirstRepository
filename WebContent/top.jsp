@@ -30,11 +30,11 @@ $(function(){
             
     <div class="topright">    
     <ul>
-    <li><a href="login.jsp" target="_parent">退出</a></li>
+    <li><a href="employee/exit" target="_parent">退出</a></li>
     </ul>
      
     <div class="user">
-    <span>admin</span>
+    <span>${sessionScope.employeeFlag.empName}</span>
     </div>    
     
     </div>

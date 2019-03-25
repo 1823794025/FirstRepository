@@ -25,24 +25,28 @@ public class EmployeeController {
 	
 	@RequestMapping("/login")
 	public String loginto(Model model) {
-		System.out.println("123456");
 		return "login";
 	}
 	
 	
 	@RequestMapping("/employeeLoginForm")
 	public String loginForm(@Valid @ModelAttribute("employee") Employee employee,Model model,HttpSession session,HttpServletRequest request) {
-		System.out.println("---------------------");
-		//Employee employeeFlag = employeeService.employeeLogin(employee);
-		String parameter = request.getParameter("empId");
-		if(parameter.equals("111")) {
-			//session.setAttribute("employeeFlag", employeeFlag);
+//		System.out.println("11111" + employee.getEmpId());
+//		System.out.println("11111" + employee.getPassword());
+		Employee employeeFlag = employeeService.employeeLogin(employee);
+		if(employeeFlag != null) {
+			session.setAttribute("employeeFlag", employeeFlag);
 			return "main";
 		} else {
-			//request.getRequestDispatcher("login.jsp");
 			model.addAttribute("errorlogin","账号或密码错误");
 			return "login";
-			
 		}
 	}
+	
+	@RequestMapping("exit")
+	public String exit(HttpSession session) {
+		session.removeAttribute("employeeFlag");
+		return "login";
+	}
+	
 }

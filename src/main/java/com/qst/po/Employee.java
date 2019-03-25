@@ -10,7 +10,7 @@ public class Employee {
 	private int empId;
 	//姓名
 	private String empName;
-	//年龄
+	//密码
 	private int password;
 	/**
 	 * 等级权限 

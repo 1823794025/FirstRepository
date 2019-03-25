@@ -7,16 +7,46 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>欢迎登录银行储蓄系统</title>
 <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="${ctx}/js/jquery.js"></script>
-<script src="${ctx}/js/cloud.js" type="text/javascript"></script>
+<%-- <script language="JavaScript" src="${ctx}/js/jquery.js"></script>
+<script src="${ctx}/js/cloud.js" type="text/javascript"></script> --%>
 
-<script language="javascript">
-	$(function(){
+<script>
+	/* $(function(){
     $('.loginbox').css({'position':'absolute','left':($(window).width()-692)/2});
 	$(window).resize(function(){  
     $('.loginbox').css({'position':'absolute','left':($(window).width()-692)/2});
     })  
-}); 
+});  */
+	/* function isEmpty(){
+		var empId = document.getElementsByName("empId").value;
+		var password = document.getElementsByName("password").value;
+		if (empId == "") {//|| empId == undefined
+			alert("身份id不能为空");
+			//empId.focus();//获取焦点
+			return false;
+		} else if (password == "") {//|| password == undefined
+			alert("密码不能为空");
+			//password.focus();//获取焦点
+			return false;
+		}else{
+			return true;
+		}
+	} */
+	function isEmpty(){
+		var id = document.getElementsByName("empId").value;
+		var pass = document.getElementsByName("password").value;
+		if (id == "") {//|| empId == undefined
+			alert("身份id不能为空");
+			//empId.focus();//获取焦点
+			return false;
+		} else if (pass == "") {//|| password == undefined
+			alert("密码不能为空");
+			//password.focus();//获取焦点
+			return false;
+		}else{
+			return true;
+		}
+	}
 </script>
 
 </head>
@@ -35,12 +65,12 @@
     <div class="loginbody">
 	    <span class="systemlogo"></span> 
 	    <div class="loginbox">
-	    	<form action="employeeLoginForm" method="post">
+	    	<form action="employeeLoginForm" onsubmit="return isEmpty()" method="post">
 	    		<ul>
-				    <li><input name="empId" type="text" class="loginuser" onclick="JavaScript:this.value=''"/></li>
-				    <li><input name="password" type="password" class="loginpwd" onclick="JavaScript:this.value=''"/></li>
+				    <li><input name="empId" type="text" class="loginuser" /></li>
+				    <li><input name="password" type="password" class="loginpwd"/></li>
 				    <li>
-				    	<input name="" type="submit" class="loginbtn" value="登录" />
+				    	<input type="submit" class="loginbtn" value="登录"/>
 				    	<label><a href="#">忘记密码？</a></label>
 				    </li>
 			    </ul>
